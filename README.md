@@ -11,4 +11,8 @@ assumptions about the outgoing email:
 
  - Lay out a solution without devoting too many words.
 
+ - Delete repated and least essential sentences.
+
  - Delete certain type of words.
+
+ - Remove extraneous and redundant information.
