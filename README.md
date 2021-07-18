@@ -16,3 +16,9 @@ assumptions about the outgoing email:
  - Delete certain type of words.
 
  - Remove extraneous and redundant information.
+
+## ToDo list
+
+ - [ ] enable code linters
+
+ - [ ] enable unit tests
