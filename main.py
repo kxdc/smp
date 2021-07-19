@@ -29,6 +29,13 @@ def process_file(filename):
         return
 
 
+def search_word_in_line(line, word):
+
+    index = re.search(word, line)
+    if index is not None:
+        print(index.start())
+
+
 def search_words_in_context(context, target_words_list):
 
     results = ()
