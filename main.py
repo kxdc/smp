@@ -29,6 +29,21 @@ def process_file(filename):
         return
 
 
+def search_words_in_context(context, target_words_list):
+
+    results = ()
+    line_index = -1
+
+    for single_line in context:
+        line_index++
+        for target_word in target_words_list:
+            oneline_result = search_word_in_line(single_line, target_word)
+            results.append(oneline_result)
+
+    return results
+
+
+
 if __name__ == '__main__':
 
     file_path = "./sample.txt"
