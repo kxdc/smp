@@ -22,3 +22,5 @@ assumptions about the outgoing email:
 - [ ] enable code linters
 
 - [ ] enable unit tests
+
+- [ ] enable code coverage scan
