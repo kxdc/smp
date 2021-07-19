@@ -31,21 +31,22 @@ def process_file(filename):
 
 def search_word_in_line(line, word):
 
-    index = re.search(word, line)
+    index = re.search(word , line)
     if index is not None:
-        print(index.start())
+        return (word, index.start())
 
 
 def search_words_in_context(context, target_words_list):
 
-    results = ()
+    results = []
     line_index = -1
 
     for single_line in context:
-        line_index++
+        line_index += 1
+        oneline_result = []
         for target_word in target_words_list:
-            oneline_result = search_word_in_line(single_line, target_word)
-            results.append(oneline_result)
+            oneline_result.append(search_word_in_line(single_line, target_word))
+        results.append((line_index, oneline_result))
 
     return results
 
@@ -60,5 +61,6 @@ if __name__ == '__main__':
     
     mail_context = process_file(file_path)
 
-    noticed_list = [ 'with', 'the' ]
-    search_words_in_context(mail_context, noticed_list)
+    noticed_list = [ 'a', 'with', 'the' ]
+    context_results = search_words_in_context(mail_context, noticed_list)
+    print(context_results)
