@@ -36,9 +36,7 @@ def search_substr_in_line(line, substr):
 
 def search_word_in_line(line, word):
 
-    word_indexs = [idx for idx, wd in enumerate(line.split()) if wd == word]
-
-    return (word, word_indexs)
+    return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
 
 
 def search_words_in_context(context, target_words_list):
