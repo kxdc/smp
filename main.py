@@ -29,11 +29,11 @@ def process_file(filename):
         return
 
 
-def search_substr_in_line(line, target):
+def search_substr_in_line(line, substr):
 
-    substr_indexs = [substr.start() for substr in re.finditer(target, line)]
+    substr_indexs = [string.start() for string in re.finditer(substr, line)]
 
-    return (substr, word_indexs)
+    return (substr, substr_indexs)
 
 
 def search_word_in_line(line, word):
