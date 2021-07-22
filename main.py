@@ -31,9 +31,9 @@ def process_file(filename):
 
 def search_word_in_line(line, word):
 
-    index = re.search(word , line)
-    if index is not None:
-        return (word, index.start())
+    word_indexs = [idx for idx, wd in enumerate(line.split()) if wd == word]
+
+    return (word, word_indexs)
 
 
 def search_words_in_context(context, target_words_list):
@@ -63,4 +63,3 @@ if __name__ == '__main__':
 
     noticed_list = [ 'a', 'with', 'the' ]
     context_results = search_words_in_context(mail_context, noticed_list)
-    print(context_results)
