@@ -29,6 +29,13 @@ def process_file(filename):
         return
 
 
+def search_substr_in_line(line, target):
+
+    substr_indexs = [substr.start() for substr in re.finditer(target, line)]
+
+    return (substr, word_indexs)
+
+
 def search_word_in_line(line, word):
 
     word_indexs = [idx for idx, wd in enumerate(line.split()) if wd == word]
