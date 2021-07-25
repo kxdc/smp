@@ -17,6 +17,10 @@ assumptions about the outgoing email:
 
 - Remove extraneous and redundant information.
 
+## Environment
+
+- python 3.9.2
+
 ## ToDo list
 
 - [ ] enable code linters
