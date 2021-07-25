@@ -15,7 +15,7 @@ def exists_file(filename):
 
 def get_lines(filename):
 
-    with open (filename, 'rt') as file:
+    with open(filename, 'rt') as file:
         lines = file.read()
 
     return lines
@@ -44,11 +44,11 @@ def search_words_in_context(context, target_words_list):
     results = []
     line_index = -1
 
-    for single_line in context:
+    for one_line in context:
         line_index += 1
         oneline_result = []
         for target_word in target_words_list:
-            oneline_result.append(search_word_in_line(single_line, target_word))
+            oneline_result.append(search_word_in_line(one_line, target_word))
         results.append((line_index, oneline_result))
 
     return results
