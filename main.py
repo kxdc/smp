@@ -54,15 +54,14 @@ def search_words_in_context(context, target_words_list):
     return results
 
 
-
 if __name__ == '__main__':
 
     file_path = "./sample.txt"
     logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
     logging.basicConfig(format=logFormatter, level=logging.INFO)
     logger = logging.getLogger(__name__)
-    
+
     mail_context = process_file(file_path)
 
-    noticed_list = [ 'a', 'with', 'the' ]
+    noticed_list = ['a', 'with', 'the']
     context_results = search_words_in_context(mail_context, noticed_list)
