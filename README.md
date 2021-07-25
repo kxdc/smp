@@ -21,9 +21,9 @@ assumptions about the outgoing email:
 
 - python 3.9.2
 
-## ToDo list
+## To-Do list
 
-- [ ] enable code linters
+- [x] enable code linters with `flake8`
 
 - [ ] enable unit tests
 
