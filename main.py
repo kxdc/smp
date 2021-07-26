@@ -63,5 +63,5 @@ if __name__ == '__main__':
 
     mail_context = process_file(file_path)
 
-    noticed_list = ['a', 'with', 'the']
+    noticed_list = ['very', 'just', 'really']
     context_results = search_words_in_context(mail_context, noticed_list)
