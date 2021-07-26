@@ -23,7 +23,7 @@ assumptions about the outgoing email:
 
 ## To-Do list
 
-- [x] enable code linter with `flake8` default settings
+- [x] enable code linter with `flake8` and `Black` default settings
 
 - [ ] enable unit tests
 
