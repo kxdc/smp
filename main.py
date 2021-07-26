@@ -62,7 +62,8 @@ def process_words_to_remove(lines, results, word_list):
         for word_hit in oneline_result[1]:
             if len(word_hit[1]) > 0:
                 found = True
-                hint_line = word_hit[0]+":"+''.join(str(c) for c in word_hit[1])
+                position_hit = ','.join(str(c) for c in word_hit[1])
+                hint_line = word_hit[0] + ":" + position_hit
 
         print(lines[oneline_result[0]])
         if found:
@@ -83,4 +84,3 @@ if __name__ == '__main__':
     noticed_list = ['very', 'just', 'really']
     context_results = search_words_in_context(mail_context, noticed_list)
     process_words_to_remove(mail_context, context_results, noticed_list)
-
