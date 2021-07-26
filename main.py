@@ -44,11 +44,11 @@ def search_words_in_context(context, target_words_list):
     results = []
     line_index = -1
 
-    for one_line in context:
+    for oneline in context:
         line_index += 1
         oneline_result = []
         for target_word in target_words_list:
-            oneline_result.append(search_word_in_line(one_line, target_word))
+            oneline_result.append(search_word_in_line(oneline, target_word))
         results.append((line_index, oneline_result))
 
     return results
