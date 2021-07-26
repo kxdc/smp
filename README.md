@@ -28,3 +28,5 @@ assumptions about the outgoing email:
 - [ ] enable unit tests
 
 - [ ] enable code coverage scan
+
+- [ ] better hint display
