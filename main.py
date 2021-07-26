@@ -54,6 +54,23 @@ def search_words_in_context(context, target_words_list):
     return results
 
 
+def process_words_to_remove(lines, results, word_list):
+
+    for oneline_result in results:
+        found = False
+        hint_line = ''
+        for word_hit in oneline_result[1]:
+            if len(word_hit[1]) > 0:
+                found = True
+                hint_line = word_hit[0]+":"+''.join(str(c) for c in word_hit[1])
+
+        print(lines[oneline_result[0]])
+        if found:
+            print(hint_line, end='')
+        else:
+            print(hint_line)
+
+
 if __name__ == '__main__':
 
     file_path = "./sample.txt"
@@ -65,3 +82,5 @@ if __name__ == '__main__':
 
     noticed_list = ['very', 'just', 'really']
     context_results = search_words_in_context(mail_context, noticed_list)
+    process_words_to_remove(mail_context, context_results, noticed_list)
+
