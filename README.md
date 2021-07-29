@@ -25,7 +25,7 @@ assumptions about the outgoing email:
 
 - [x] enable code linter with `flake8` and `Black` default settings
 
-- [ ] enable static type checker
+- [x] enable static typing with `Mypy`
 
 - [ ] enable unit tests
 
