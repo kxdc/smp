@@ -25,6 +25,8 @@ assumptions about the outgoing email:
 
 - [x] enable code linter with `flake8` and `Black` default settings
 
+- [ ] enable static type checker
+
 - [ ] enable unit tests
 
 - [ ] enable code coverage scan
