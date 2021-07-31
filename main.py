@@ -4,7 +4,7 @@ import logging
 from typing import List, Tuple
 
 
-Oneline_Results = Tuple[str, list[int]]
+Oneline_Results = Tuple[str, List[int]]
 Context_Results = List[Tuple[int, List[Oneline_Results]]]
 
 
@@ -26,7 +26,7 @@ def get_lines(filename:str) -> str:
     return lines
 
 
-def process_file(filename:str) -> list[str]:
+def process_file(filename:str) -> List[str]:
 
     if exists_file(filename):
         return get_lines(filename).split(".")
@@ -44,7 +44,7 @@ def search_word_in_line(line:str, word:str) -> Oneline_Results:
     return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
 
 
-def search_words_in_context(context:list[str], target_words_list:list[str]) -> Context_Results:
+def search_words_in_context(context:List[str], target_words_list:List[str]) -> Context_Results:
 
     results = []
     line_index = -1
@@ -59,7 +59,7 @@ def search_words_in_context(context:list[str], target_words_list:list[str]) -> C
     return results
 
 
-def process_words_to_remove(lines:list[str], results:list[int], word_list:list[str]) -> None:
+def process_words_to_remove(lines:List[str], results:Context_Results, word_list:List[str]) -> None:
 
     for oneline_result in results:
         found = False
