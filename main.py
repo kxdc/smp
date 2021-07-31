@@ -3,7 +3,7 @@ import re
 import logging
 
 
-def exists_file(filename):
+def exists_file(filename:str) -> bool:
 
     if not os.path.exists(filename):
         logger.critical('No such file "%s"', filename)
@@ -13,7 +13,7 @@ def exists_file(filename):
         return True
 
 
-def get_lines(filename):
+def get_lines(filename:str) -> str:
 
     with open(filename, "rt") as file:
         lines = file.read()
@@ -21,12 +21,12 @@ def get_lines(filename):
     return lines
 
 
-def process_file(filename):
+def process_file(filename:str) -> list[str]:
 
     if exists_file(filename):
         return get_lines(filename).split(".")
     else:
-        return
+        return []
 
 
 def search_substr_in_line(line, substr):
