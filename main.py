@@ -1,6 +1,11 @@
 import os
 import re
 import logging
+# from typing import List, Tuple
+# 
+# 
+# Onelie_Results=Tuple[str, list[int]]
+# Context_Results=List[Tuple[int, List[Onelie_Results]]]
 
 
 def exists_file(filename:str) -> bool:
@@ -39,7 +44,7 @@ def search_word_in_line(line:str, word:str) -> tuple[str, list[int]]:
     return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
 
 
-def search_words_in_context(context, target_words_list):
+def search_words_in_context(context:list[str], target_words_list:list[str]) -> list[tuple[int, list[tuple[str, list[int]]]]]:
 
     results = []
     line_index = -1
