@@ -29,12 +29,12 @@ def process_file(filename:str) -> list[str]:
         return []
 
 
-def search_substr_in_line(line, substr):
+def search_substr_in_line(line:str, substr:str) -> tuple[str, list[int]]:
 
     return (substr, [string.start() for string in re.finditer(substr, line)])
 
 
-def search_word_in_line(line, word):
+def search_word_in_line(line:str, word:str) -> tuple[str, list[int]]:
 
     return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
 
