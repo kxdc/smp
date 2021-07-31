@@ -54,7 +54,7 @@ def search_words_in_context(context, target_words_list):
     return results
 
 
-def process_words_to_remove(lines, results, word_list):
+def process_words_to_remove(lines:list[str], results:list[int], word_list:list[str]) -> None:
 
     for oneline_result in results:
         found = False
