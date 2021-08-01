@@ -5,7 +5,7 @@ from typing import List, Tuple
 
 
 Oneline_Results = Tuple[str, List[int]]
-Context_Results = List[Tuple[int, List[Oneline_Results]]]
+Content_Results = List[Tuple[int, List[Oneline_Results]]]
 
 
 def exists_file(filename:str) -> bool:
@@ -28,12 +28,12 @@ def get_lines(filename:str) -> str:
 
 def process_file(filename:str) -> List[str]:
 
-    contents = []
+    content = []
     if exists_file(filename):
         for oneline in get_lines(filename).split("."):
-            contents.append(oneline.lstrip())
+            content.append(oneline.lstrip())
 
-    return contents
+    return content
 
 
 def search_substr_in_line(line:str, substr:str) -> Oneline_Results:
@@ -46,12 +46,12 @@ def search_word_in_line(line:str, word:str) -> Oneline_Results:
     return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
 
 
-def search_words_in_context(context:List[str], target_words_list:List[str]) -> Context_Results:
+def search_words_in_content(content:List[str], target_words_list:List[str]) -> Content_Results:
 
     results = []
     line_index = -1
 
-    for oneline in context:
+    for oneline in content:
         line_index += 1
         oneline_result = []
         for target_word in target_words_list:
@@ -61,7 +61,7 @@ def search_words_in_context(context:List[str], target_words_list:List[str]) -> C
     return results
 
 
-def process_words_to_remove(lines:List[str], results:Context_Results, word_list:List[str]) -> None:
+def process_words_to_remove(lines:List[str], results:Content_Results, word_list:List[str]) -> None:
 
     for oneline_result in results:
         found = False
@@ -86,8 +86,8 @@ if __name__ == "__main__":
     logging.basicConfig(format=logFormatter, level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    mail_context = process_file(file_path)
+    mail_content = process_file(file_path)
 
     noticed_list = ["very", "just", "really"]
-    context_results = search_words_in_context(mail_context, noticed_list)
-    process_words_to_remove(mail_context, context_results, noticed_list)
+    content_results = search_words_in_content(mail_content, noticed_list)
+    process_words_to_remove(mail_content, content_results, noticed_list)
