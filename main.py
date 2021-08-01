@@ -28,10 +28,12 @@ def get_lines(filename:str) -> str:
 
 def process_file(filename:str) -> List[str]:
 
+    contents = []
     if exists_file(filename):
-        return get_lines(filename).split(".")
-    else:
-        return []
+        for oneline in get_lines(filename).split("."):
+            contents.append(oneline.lstrip())
+
+    return contents
 
 
 def search_substr_in_line(line:str, substr:str) -> Oneline_Results:
