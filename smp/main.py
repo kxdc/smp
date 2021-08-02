@@ -86,7 +86,7 @@ def process_words_to_remove(
 
 if __name__ == "__main__":
 
-    file_path = "./sample.txt"
+    file_path = "../sample.txt"
     logFormatter = "%(asctime)s - %(levelname)s - %(message)s"
     logging.basicConfig(format=logFormatter, level=logging.INFO)
     logger = logging.getLogger(__name__)
