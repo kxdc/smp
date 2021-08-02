@@ -9,7 +9,7 @@ Oneline_Results = Tuple[str, List[int]]
 Content_Results = List[Tuple[int, List[Oneline_Results]]]
 
 
-def exists_file(filename:str) -> bool:
+def exists_file(filename: str) -> bool:
 
     if not os.path.exists(filename):
         logger.critical('No such file "%s"', filename)
@@ -19,7 +19,7 @@ def exists_file(filename:str) -> bool:
         return True
 
 
-def get_lines(filename:str) -> str:
+def get_lines(filename: str) -> str:
 
     with open(filename, "rt") as file:
         lines = file.read()
@@ -27,7 +27,7 @@ def get_lines(filename:str) -> str:
     return lines
 
 
-def process_file(filename:str) -> List[str]:
+def process_file(filename: str) -> List[str]:
 
     content = []
     if exists_file(filename):
@@ -37,17 +37,17 @@ def process_file(filename:str) -> List[str]:
     return content
 
 
-def search_substr_in_line(line:str, substr:str) -> Oneline_Results:
+def search_substr_in_line(line: str, substr: str) -> Oneline_Results:
 
     return (substr, [string.start() for string in re.finditer(substr, line)])
 
 
-def search_word_in_line(line:str, word:str) -> Oneline_Results:
+def search_word_in_line(line: str, word: str) -> Oneline_Results:
 
     return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
 
 
-def search_words_in_content(content:List[str], target_words_list:List[str]) -> Content_Results:
+def search_words_in_content(content: List[str], target_words_list: List[str]) -> Content_Results:
 
     results = []
     line_index = -1
@@ -62,7 +62,7 @@ def search_words_in_content(content:List[str], target_words_list:List[str]) -> C
     return results
 
 
-def process_words_to_remove(lines:List[str], results:Content_Results, word_list:List[str]) -> None:
+def process_words_to_remove(lines: List[str], results: Content_Results, word_list: List[str]) -> None:
 
     for oneline_result in results:
         found = False
