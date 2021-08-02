@@ -48,8 +48,8 @@ def search_word_in_line(line: str, word: str) -> Oneline_Results:
 
 
 def search_words_in_content(
-        content: List[str],
-        target_words_list: List[str]) -> Content_Results:
+    content: List[str], target_words_list: List[str]
+) -> Content_Results:
 
     results = []
     line_index = -1
@@ -65,9 +65,8 @@ def search_words_in_content(
 
 
 def process_words_to_remove(
-        lines: List[str],
-        results: Content_Results,
-        word_list: List[str]) -> None:
+    lines: List[str], results: Content_Results, word_list: List[str]
+) -> None:
 
     for oneline_result in results:
         found = False
