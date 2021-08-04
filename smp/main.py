@@ -9,7 +9,7 @@ Oneline_Results = Tuple[str, List[int]]
 Content_Results = List[Tuple[int, List[Oneline_Results]]]
 
 
-class MailHelper:
+class mail_helper:
     def exists_file(filename: str) -> bool:
     
         if not os.path.exists(filename):
