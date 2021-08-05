@@ -10,7 +10,7 @@ Content_Results = List[Tuple[int, List[Oneline_Results]]]
 
 
 class mail_helper:
-    def exists_file(filename: str) -> bool:
+    def exists_file(self, filename: str) -> bool:
     
         if not os.path.exists(filename):
             logger.critical('No such file "%s"', filename)
@@ -20,7 +20,7 @@ class mail_helper:
             return True
     
     
-    def get_lines(filename: str) -> str:
+    def get_lines(self, filename: str) -> str:
     
         with open(filename, "rt") as file:
             lines = file.read()
@@ -28,28 +28,28 @@ class mail_helper:
         return lines
     
     
-    def process_file(filename: str) -> List[str]:
+    def process_file(self, filename: str) -> List[str]:
     
         content = []
-        if exists_file(filename):
-            for oneline in get_lines(filename).split("."):
+        if self.exists_file(filename):
+            for oneline in self.get_lines(filename).split("."):
                 content.append(oneline.lstrip())
     
         return content
     
     
-    def search_substr_in_line(line: str, substr: str) -> Oneline_Results:
+    def search_substr_in_line(self, line: str, substr: str) -> Oneline_Results:
     
         return (substr, [string.start() for string in re.finditer(substr, line)])
     
     
-    def search_word_in_line(line: str, word: str) -> Oneline_Results:
+    def search_word_in_line(self, line: str, word: str) -> Oneline_Results:
     
         return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
     
     
     def search_words_in_content(
-        content: List[str], target_words_list: List[str]
+        self, content: List[str], target_words_list: List[str]
     ) -> Content_Results:
     
         results = []
@@ -59,14 +59,14 @@ class mail_helper:
             line_index += 1
             oneline_result = []
             for target_word in target_words_list:
-                oneline_result.append(search_word_in_line(oneline, target_word))
+                oneline_result.append(self.search_word_in_line(oneline, target_word))
             results.append((line_index, oneline_result))
     
         return results
     
     
     def process_words_to_remove(
-        lines: List[str], results: Content_Results, word_list: List[str]
+        self, lines: List[str], results: Content_Results, word_list: List[str]
     ) -> None:
     
         for oneline_result in results:
@@ -92,8 +92,9 @@ if __name__ == "__main__":
     logging.basicConfig(format=logFormatter, level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    mail_content = process_file(file_path)
+    smp = mail_helper()
+    mail_content = smp.process_file(file_path)
 
     noticed_list = ["very", "just", "really"]
-    content_results = search_words_in_content(mail_content, noticed_list)
-    process_words_to_remove(mail_content, content_results, noticed_list)
+    content_results = smp.search_words_in_content(mail_content, noticed_list)
+    smp.process_words_to_remove(mail_content, content_results, noticed_list)
