@@ -10,6 +10,12 @@ Content_Results = List[Tuple[int, List[Oneline_Results]]]
 
 
 class SimpleMailHelper:
+    target_word_list=[]
+
+    def set_target_word_list(self, word_list: List[str]) -> None:
+
+        self.target_words_list=word_list
+
     def exists_file(self, filename: str) -> bool:
     
         if not os.path.exists(filename):
@@ -48,9 +54,7 @@ class SimpleMailHelper:
         return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
     
     
-    def search_words_in_content(
-        self, content: List[str], target_words_list: List[str]
-    ) -> Content_Results:
+    def search_words_in_content(self, content: List[str]) -> Content_Results:
     
         results = []
         line_index = -1
@@ -58,7 +62,7 @@ class SimpleMailHelper:
         for oneline in content:
             line_index += 1
             oneline_result = []
-            for target_word in target_words_list:
+            for target_word in self.target_word_list:
                 oneline_result.append(self.search_word_in_line(oneline, target_word))
             results.append((line_index, oneline_result))
     
@@ -66,7 +70,7 @@ class SimpleMailHelper:
     
     
     def process_words_to_remove(
-        self, lines: List[str], results: Content_Results, word_list: List[str]
+        self, lines: List[str], results: Content_Results
     ) -> None:
     
         for oneline_result in results:
@@ -96,5 +100,6 @@ if __name__ == "__main__":
     mail_content = smp.process_file(file_path)
 
     noticed_list = ["very", "just", "really"]
-    content_results = smp.search_words_in_content(mail_content, noticed_list)
-    smp.process_words_to_remove(mail_content, content_results, noticed_list)
+    smp.set_target_word_list(noticed_list)
+    content_results = smp.search_words_in_content(mail_content)
+    smp.process_words_to_remove(mail_content, content_results)
