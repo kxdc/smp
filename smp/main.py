@@ -9,7 +9,7 @@ Oneline_Results = Tuple[str, List[int]]
 Content_Results = List[Tuple[int, List[Oneline_Results]]]
 
 
-class mail_helper:
+class SimpleMailHelper:
     def exists_file(self, filename: str) -> bool:
     
         if not os.path.exists(filename):
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     logging.basicConfig(format=logFormatter, level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    smp = mail_helper()
+    smp = SimpleMailHelper()
     mail_content = smp.process_file(file_path)
 
     noticed_list = ["very", "just", "really"]
