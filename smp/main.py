@@ -40,13 +40,13 @@ class SimpleMailHelper:
             for oneline in self.get_lines(filename).split("."):
                 self.content.append(oneline.lstrip())
 
-    def search_substr_in_line(self, line: str, substr: str) -> Oneline_Results:
+    def search_substr_in_line(self, line: str, sstr: str) -> Oneline_Results:
 
-        return (substr, [string.start() for string in re.finditer(substr, line)])
+        return (sstr, [string.start() for string in re.finditer(sstr, line)])
 
     def search_word_in_line(self, line: str, word: str) -> Oneline_Results:
 
-        return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
+        return (word, [i for i, w in enumerate(line.split()) if w == word])
 
     def search_words_in_content(self) -> Content_Results:
 
