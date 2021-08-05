@@ -10,8 +10,8 @@ Content_Results = List[Tuple[int, List[Oneline_Results]]]
 
 
 class SimpleMailHelper:
-    def __init__(self, word_list=None) -> None:
-        self.target_word_list = word_list
+    def __init__(self) -> None:
+        self.target_word_list = []
         self.content = []
 
     def set_target_word_list(self, word_list: List[str]) -> None:
