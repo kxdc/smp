@@ -11,6 +11,7 @@ Content_Results = List[Tuple[int, List[Oneline_Results]]]
 
 class SimpleMailHelper:
     target_word_list=[]
+    content=[]
 
     def set_target_word_list(self, word_list: List[str]) -> None:
 
@@ -34,15 +35,11 @@ class SimpleMailHelper:
         return lines
     
     
-    def process_file(self, filename: str) -> List[str]:
+    def process_file(self, filename: str) -> None:
     
-        content = []
         if self.exists_file(filename):
             for oneline in self.get_lines(filename).split("."):
-                content.append(oneline.lstrip())
-    
-        return content
-    
+                self.content.append(oneline.lstrip())
     
     def search_substr_in_line(self, line: str, substr: str) -> Oneline_Results:
     
@@ -54,12 +51,12 @@ class SimpleMailHelper:
         return (word, [idx for idx, wd in enumerate(line.split()) if wd == word])
     
     
-    def search_words_in_content(self, content: List[str]) -> Content_Results:
+    def search_words_in_content(self) -> Content_Results:
     
         results = []
         line_index = -1
     
-        for oneline in content:
+        for oneline in self.content:
             line_index += 1
             oneline_result = []
             for target_word in self.target_word_list:
@@ -69,9 +66,7 @@ class SimpleMailHelper:
         return results
     
     
-    def process_words_to_remove(
-        self, lines: List[str], results: Content_Results
-    ) -> None:
+    def process_words_to_remove(self, results: Content_Results) -> None:
     
         for oneline_result in results:
             found = False
@@ -82,7 +77,7 @@ class SimpleMailHelper:
                     position_hit = ",".join(str(c) for c in word_hit[1])
                     hint_line = word_hit[0] + ":" + position_hit
     
-            print(lines[oneline_result[0]])
+            print(self.content[oneline_result[0]])
             if found:
                 print(hint_line, end="")
             else:
@@ -97,9 +92,9 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)
 
     smp = SimpleMailHelper()
-    mail_content = smp.process_file(file_path)
+    smp.process_file(file_path)
 
     noticed_list = ["very", "just", "really"]
     smp.set_target_word_list(noticed_list)
-    content_results = smp.search_words_in_content(mail_content)
-    smp.process_words_to_remove(mail_content, content_results)
+    content_results = smp.search_words_in_content()
+    smp.process_words_to_remove(content_results)
