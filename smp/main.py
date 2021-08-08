@@ -87,10 +87,10 @@ if __name__ == "__main__":
     logging.basicConfig(format=logFormatter, level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    smp = SimpleMailHelper()
-    smp.process_file(file_path)
+    mail_helper = SimpleMailHelper()
+    mail_helper.process_file(file_path)
 
     noticed_list = ["very", "just", "really"]
-    smp.set_target_word_list(noticed_list)
-    content_results = smp.search_words_in_content()
-    smp.process_words_to_remove(content_results)
+    mail_helper.set_target_word_list(noticed_list)
+    content_results = mail_helper.search_words_in_content()
+    mail_helper.process_words_to_remove(content_results)
