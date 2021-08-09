@@ -7,7 +7,7 @@ assumptions about the outgoing email:
 
 - Thoroughly think is the email about to send necessary at all.
 
-- Help the reader out to find your main point, don't dwell it.
+- Stress main point, don't dwell it.
 
 - Lay out a solution without devoting too many words.
 
@@ -15,7 +15,7 @@ assumptions about the outgoing email:
 
 - Delete certain type of words.
 
-- Remove extraneous and redundant information.
+- Remove redundant information.
 
 ## Environment
 
@@ -27,7 +27,7 @@ assumptions about the outgoing email:
 
 - [x] enable package management with `Poetry`
 
-- [x] enable dependency management for Python with `Poetry`
+- [x] enable dependency management with `Poetry`
 
 - [x] enable code linter with `flake8` and `Black` default settings
 
