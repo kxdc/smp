@@ -25,9 +25,9 @@ assumptions about the outgoing email:
 
 - [ ] fill detailed comments
 
-- [ ] enable package management with `Poetry`
+- [x] enable package management with `Poetry`
 
-- [ ] enable dependency management for Python with `Poetry`
+- [x] enable dependency management for Python with `Poetry`
 
 - [x] enable code linter with `flake8` and `Black` default settings
 
