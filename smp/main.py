@@ -3,17 +3,19 @@ import os
 import re
 import logging
 from typing import List, Tuple
-from . import __version__
 
 
 Oneline_Results = Tuple[str, List[int]]
 Content_Results = List[Tuple[int, List[Oneline_Results]]]
+logFormatter = "%(asctime)s - %(levelname)s - %(message)s"
+logging.basicConfig(format=logFormatter, level=logging.INFO)
 
 
 class SimpleMailHelper:
     def __init__(self) -> None:
         self.target_word_list = []
         self.content = []
+        self.logger = logging.getLogger(__name__)
 
     def set_target_word_list(self, word_list: List[str]) -> None:
 
@@ -22,10 +24,10 @@ class SimpleMailHelper:
     def exists_file(self, filename: str) -> bool:
 
         if not os.path.exists(filename):
-            logger.critical('No such file "%s"', filename)
+            self.logger.critical('No such file "%s"', filename)
             return False
         else:
-            logger.info('Processing file "%s"', filename)
+            self.logger.info('Processing file "%s"', filename)
             return True
 
     def get_lines(self, filename: str) -> str:
@@ -84,9 +86,6 @@ class SimpleMailHelper:
 if __name__ == "__main__":
 
     file_path = "../sample.txt"
-    logFormatter = "%(asctime)s - %(levelname)s - %(message)s"
-    logging.basicConfig(format=logFormatter, level=logging.INFO)
-    logger = logging.getLogger(__name__)
 
     mail_helper = SimpleMailHelper()
     mail_helper.process_file(file_path)
