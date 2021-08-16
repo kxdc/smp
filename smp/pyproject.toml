@@ -3,6 +3,10 @@ name = "smp"
 version = "0.1.0"
 description = "smp for simple mail helper"
 authors = ["kxdc <kvuexlu@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/kxdc/smp"
+repository = "https://github.com/kxdc/smp"
 
 [tool.poetry.dependencies]
 python = "^3.9"
