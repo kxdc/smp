@@ -3,6 +3,7 @@ import os
 import re
 import logging
 from typing import List, Tuple
+from . import __version__
 
 
 Oneline_Results = Tuple[str, List[int]]
