@@ -33,7 +33,7 @@ assumptions about the outgoing email:
 
 - [x] enable static typing with `Mypy` default settings
 
-- [ ] enable unit tests
+- [x] enable unit tests
 
 - [ ] enable code coverage scan
 
