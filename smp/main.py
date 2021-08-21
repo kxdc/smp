@@ -2,6 +2,7 @@
 import os
 import re
 import logging
+import difflib
 from typing import List, Tuple
 
 
@@ -64,6 +65,13 @@ class SimpleMailHelper:
             results.append((line_index, oneline_result))
 
         return results
+
+    def word_matches(word, target, threshold):
+
+        s = difflib.SequenceMatcher(None, word, query_string)
+        match = ''.join(word[i:i+n] for i, j, n in s.get_matching_blocks() if n)
+        if len(match) / float(len(query_string)) >= threshold:
+            yield match
 
     def replace_except_target(self, line: List[str], target:List[str]) -> List[str]:
 
