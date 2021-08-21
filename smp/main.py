@@ -84,15 +84,10 @@ class SimpleMailHelper:
                 if len(word_hit[1]) > 0:
                     found = True
                     position_hit = ",".join(str(c) for c in word_hit[1])
-                    # hint_line = word_hit[0] + ":" + position_hit
                     hint_line = self.replace_except_target(self.content[oneline_result[0]], word_hit[0])
 
             print(self.content[oneline_result[0]])
-            if found:
-                # print(hint_line, end="")
-                print(hint_line)
-            else:
-                print(hint_line)
+            print(hint_line)
 
 
 if __name__ == "__main__":
