@@ -70,9 +70,8 @@ class SimpleMailHelper:
         temp = line.split(" ")
         replace_char = " "
         for idx in range(len(temp)):
-            ele = temp[idx]
-            if not ele == target:
-                temp[idx] = replace_char
+            if not temp[idx] == target:
+                temp[idx] = replace_char * len(temp[idx])
 
         return " ".join(temp)
 
