@@ -66,7 +66,7 @@ class SimpleMailHelper:
 
         return results
 
-    def word_matches(word, target, threshold):
+    def word_matches(word: List[str], target: List[str], threshold: int) -> List[str]:
 
         s = difflib.SequenceMatcher(None, word, target)
         match = ''.join(word[i:i+n] for i, j, n in s.get_matching_blocks() if n)
