@@ -68,9 +68,9 @@ class SimpleMailHelper:
 
     def word_matches(word, target, threshold):
 
-        s = difflib.SequenceMatcher(None, word, query_string)
+        s = difflib.SequenceMatcher(None, word, target)
         match = ''.join(word[i:i+n] for i, j, n in s.get_matching_blocks() if n)
-        if len(match) / float(len(query_string)) >= threshold:
+        if len(match) / float(len(target)) >= threshold:
             yield match
 
     def replace_except_target(self, line: List[str], target:List[str]) -> List[str]:
