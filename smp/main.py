@@ -66,7 +66,7 @@ class SimpleMailHelper:
 
         return results
 
-    def word_matches(word: List[str], target: List[str], threshold: int) -> List[str]:
+    def word_matches(self, word: List[str], target: List[str], threshold: int) -> List[str]:
 
         s = difflib.SequenceMatcher(None, word, target)
         match = ''.join(word[i:i+n] for i, j, n in s.get_matching_blocks() if n)
@@ -86,7 +86,6 @@ class SimpleMailHelper:
     def process_words_to_remove(self, results: Content_Results) -> None:
 
         for oneline_result in results:
-            found = False
             hint_line = ""
             for word_hit in oneline_result[1]:
                 if len(word_hit[1]) > 0:
