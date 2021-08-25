@@ -73,7 +73,7 @@ class SimpleMailHelper:
         if len(match) / float(len(target)) >= threshold:
             yield match
 
-    def replace_except_target(self, line: List[str], target:List[str]) -> List[str]:
+    def replace_except_target(self, line: List[str], target: List[str]) -> List[str]:
 
         temp = line.split(" ")
         replace_char = " "
@@ -90,8 +90,6 @@ class SimpleMailHelper:
             hint_line = ""
             for word_hit in oneline_result[1]:
                 if len(word_hit[1]) > 0:
-                    found = True
-                    position_hit = ",".join(str(c) for c in word_hit[1])
                     hint_line = self.replace_except_target(self.content[oneline_result[0]], word_hit[0])
 
             print(self.content[oneline_result[0]])
