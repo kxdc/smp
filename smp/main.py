@@ -14,8 +14,8 @@ logging.basicConfig(format=logFormatter, level=logging.INFO)
 
 class SimpleMailHelper:
     def __init__(self) -> None:
-        self.target_word_list = []
-        self.content = []
+        self.target_word_list: List[str] = []
+        self.content: List[str] = []
         self.logger = logging.getLogger(__name__)
 
     def set_target_word_list(self, word_list: List[str]) -> None:
