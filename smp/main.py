@@ -77,7 +77,7 @@ class SimpleMailHelper:
 
     def replace_except_target(
             self, line: List[str], target: List[str]
-    ) -> List[str]:
+    ) -> str:
 
         temp = line.split(" ")
         replace_char = " "
