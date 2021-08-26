@@ -76,7 +76,7 @@ class SimpleMailHelper:
             yield match
 
     def replace_except_target(
-            self, line: List[str], target: List[str]
+            self, line: str, target: str 
     ) -> str:
 
         temp = line.split(" ")
