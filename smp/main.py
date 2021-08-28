@@ -3,7 +3,7 @@ import os
 import re
 import logging
 import difflib
-from typing import List, Tuple
+from typing import List, Tuple, Generator
 
 
 Oneline_Results = Tuple[str, List[int]]
@@ -68,7 +68,7 @@ class SimpleMailHelper:
 
     def word_matches(
             self, word: str, target: List[str], threshold: int
-    ) -> List[str]:
+    ) ->Generator[str, None, None]:
 
         s = difflib.SequenceMatcher(None, word, target)
         match = ''.join(word[i:i+n] for i, j, n in s.get_matching_blocks() if n)
