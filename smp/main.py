@@ -98,6 +98,12 @@ class SimpleMailHelper:
 
             self.outputs.append(hint_line)
 
+    def display_outputs(self) -> None:
+
+        for i in range(len(self.content)):
+            print(self.content[i])
+            print(self.outputs[i])
+
 
 if __name__ == "__main__":
 
@@ -110,3 +116,4 @@ if __name__ == "__main__":
     mail_helper.set_target_word_list(noticed_list)
     content_results = mail_helper.search_words_in_content()
     mail_helper.process_words_to_remove(content_results)
+    mail_helper.display_outputs()
