@@ -68,12 +68,12 @@ class SimpleMailHelper:
 
     def word_matches(
             self, word: str, target: List[str], threshold: int
-    ) ->Generator[str, None, None]:
+    ) -> Generator[str, None, None]:
 
         s = difflib.SequenceMatcher(None, word, target)
-        match = ''.join(word[i:i+n] for i, j, n in s.get_matching_blocks() if n)
-        if len(match) / float(len(target)) >= threshold:
-            yield match
+        w = ''.join(word[i:i+n] for i, j, n in s.get_matching_blocks() if n)
+        if len(w) / float(len(target)) >= threshold:
+            yield w
 
     def replace_except_target(self, line: str, target: str) -> str:
 
