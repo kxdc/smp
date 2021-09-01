@@ -16,7 +16,7 @@ class SimpleMailHelper:
     def __init__(self) -> None:
         self.target_word_list: List[str] = []
         self.content: List[str] = []
-        self.hint_lines: List[str] = []
+        self.outputs: List[str] = []
         self.logger = logging.getLogger(__name__)
 
     def set_target_word_list(self, word_list: List[str]) -> None:
@@ -96,7 +96,7 @@ class SimpleMailHelper:
                         self.content[oneline_result[0]], word_hit[0]
                     )
 
-            self.hint_lines.append(hint_line)
+            self.outputs.append(hint_line)
 
 
 if __name__ == "__main__":
