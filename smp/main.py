@@ -90,12 +90,15 @@ class SimpleMailHelper:
 
         for oneline_result in results:
             hint_line = ""
+            orig_line = self.content[oneline_result[0]]
             for word_hit in oneline_result[1]:
                 if len(word_hit[1]) > 0:
-                    hint_line = self.replace_except_target(
-                        self.content[oneline_result[0]], word_hit[0]
-                    )
+                    hint_line = self.replace_except_target(orig_line, word_hit)
 
+            if len(hint_line) == 0:
+                for line in orig_line.split("\n"):
+                    hint_line += self.replace_char * len(line) + "\n"
+                hint_line = hint_line.rstrip("\n")
             self.outputs.append(hint_line)
 
     def display_outputs(self) -> None:
