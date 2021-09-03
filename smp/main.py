@@ -101,11 +101,10 @@ class SimpleMailHelper:
                 hint_line = hint_line.rstrip("\n")
             self.outputs.append(hint_line)
 
-    def splitted_display(self, size) -> List[str]:
+    def splitted_display(self, size) -> None:
 
-        output = []
-        squiz_content = '. '.join(self.content)
-        squiz_outputs = '  '.join(self.outputs)
+        squiz_content = '# '.join(self.content)
+        squiz_outputs = ' '.join(self.outputs)
         words = squiz_content.split(" ")
         total_length = 0
 
@@ -123,12 +122,9 @@ class SimpleMailHelper:
                     line_len += len(next_word) + 1
 
             line = " ".join(line)
-            output.append(line)
+            print(line)
+            print(squiz_outputs[total_length:total_length+len(line)])
             total_length += len(line) 
-
-        for l in output:
-            print(l)
-        return output
 
     def display_outputs(self) -> None:
 
@@ -148,5 +144,5 @@ if __name__ == "__main__":
     mail_helper.set_target_word_list(noticed_list)
     content_results = mail_helper.search_words_in_content()
     mail_helper.process_words_to_remove(content_results)
-    mail_helper.display_outputs()
+    # mail_helper.display_outputs()
     mail_helper.splitted_display(80)
