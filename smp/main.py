@@ -79,12 +79,12 @@ class SimpleMailHelper:
 
     def replace_except_target(self, line: str, target: Oneline_Results) -> str:
 
-        temp = line.split(" ")
-        for idx in range(len(temp)):
-            if not temp[idx] == target:
-                temp[idx] = self.replace_char * len(temp[idx])
+        tmp = line.split(" ")
+        for idx in range(len(tmp)):
+            if not tmp[idx] == target[0]:
+                tmp[idx] = self.replace_char * len(tmp[idx])
 
-        return self.replace_char.join(temp)
+        return self.replace_char.join(tmp)
 
     def process_words_to_remove(self, results: Content_Results) -> None:
 
