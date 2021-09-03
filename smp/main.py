@@ -76,7 +76,7 @@ class SimpleMailHelper:
         if len(w) / float(len(target)) >= threshold:
             yield w
 
-    def replace_except_target(self, line: str, target: str) -> str:
+    def replace_except_target(self, line: str, target: Oneline_Results) -> str:
 
         temp = line.split(" ")
         replace_char = " "
