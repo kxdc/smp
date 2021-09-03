@@ -18,6 +18,7 @@ class SimpleMailHelper:
         self.content: List[str] = []
         self.outputs: List[str] = []
         self.logger = logging.getLogger(__name__)
+        self.replace_char = " "
 
     def set_target_word_list(self, word_list: List[str]) -> None:
 
@@ -79,12 +80,11 @@ class SimpleMailHelper:
     def replace_except_target(self, line: str, target: Oneline_Results) -> str:
 
         temp = line.split(" ")
-        replace_char = " "
         for idx in range(len(temp)):
             if not temp[idx] == target:
-                temp[idx] = replace_char * len(temp[idx])
+                temp[idx] = self.replace_char * len(temp[idx])
 
-        return " ".join(temp)
+        return self.replace_char.join(temp)
 
     def process_words_to_remove(self, results: Content_Results) -> None:
 
