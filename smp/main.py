@@ -101,7 +101,7 @@ class SimpleMailHelper:
                 hint_line = hint_line.rstrip("\n")
             self.outputs.append(hint_line)
 
-    def split_input(self, size) -> List[str]:
+    def splitted_display(self, size) -> List[str]:
 
         output = []
         squiz_content = '. '.join(self.content)
@@ -149,4 +149,4 @@ if __name__ == "__main__":
     content_results = mail_helper.search_words_in_content()
     mail_helper.process_words_to_remove(content_results)
     mail_helper.display_outputs()
-    mail_helper.split_input(80)
+    mail_helper.splitted_display(80)
