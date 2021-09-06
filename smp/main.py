@@ -69,11 +69,11 @@ class SimpleMailHelper:
         return results
 
     def word_matches(
-            self, word: str, target: List[str], threshold: int
+        self, word: str, target: List[str], threshold: int
     ) -> Generator[str, None, None]:
 
         s = difflib.SequenceMatcher(None, word, target)
-        w = ''.join(word[i:i+n] for i, j, n in s.get_matching_blocks() if n)
+        w = "".join(word[i : i + n] for i, j, n in s.get_matching_blocks() if n)
         if len(w) / float(len(target)) >= threshold:
             yield w
 
@@ -103,12 +103,12 @@ class SimpleMailHelper:
 
     def splitted_display(self, size) -> None:
 
-        squiz_content = '# '.join(self.content)
-        squiz_outputs = ' '.join(self.outputs)
+        squiz_content = "# ".join(self.content)
+        squiz_outputs = " ".join(self.outputs)
         words = squiz_content.split(" ")
         total_length = 0
 
-        while (total_length < len(squiz_content) and len(words) > 0):
+        while total_length < len(squiz_content) and len(words) > 0:
             line = []
             next_word = words[0]
             line_len = len(next_word) + 1
@@ -117,14 +117,14 @@ class SimpleMailHelper:
                 words.pop(0)
                 line.append(next_word)
 
-                if (len(words) > 0):
+                if len(words) > 0:
                     next_word = words[0]
                     line_len += len(next_word) + 1
 
             line = " ".join(line)
             print(line)
-            print(squiz_outputs[total_length:total_length+len(line)])
-            total_length += len(line) 
+            print(squiz_outputs[total_length : total_length + len(line)])
+            total_length += len(line)
 
     def display_outputs(self) -> None:
 
