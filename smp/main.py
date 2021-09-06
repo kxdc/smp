@@ -73,7 +73,7 @@ class SimpleMailHelper:
     ) -> Generator[str, None, None]:
 
         s = difflib.SequenceMatcher(None, word, target)
-        w = "".join(word[i : i + n] for i, j, n in s.get_matching_blocks() if n)
+        w = "".join(word[i:i + n] for i, j, n in s.get_matching_blocks() if n)
         if len(w) / float(len(target)) >= threshold:
             yield w
 
@@ -123,7 +123,7 @@ class SimpleMailHelper:
 
             line = " ".join(line)
             print(line)
-            print(squiz_outputs[total_length : total_length + len(line)])
+            print(squiz_outputs[total_length:total_length + len(line)])
             total_length += len(line)
 
     def display_outputs(self) -> None:
