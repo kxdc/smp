@@ -15,8 +15,9 @@ logging.basicConfig(format=logFormatter, level=logging.INFO)
 class SimpleMailHelper:
     def __init__(self) -> None:
         """
-        initialize function for class
+        initialize function for the class
 
+        :param self: instance of the class
         :return: None
         """
         self.target_word_list: List[str] = []
