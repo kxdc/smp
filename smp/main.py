@@ -37,7 +37,13 @@ class SimpleMailHelper:
         self.target_word_list = word_list
 
     def exists_file(self, filename: str) -> bool:
+        """
+        Check whether the file exists
 
+        :param self: instance of the class
+        :param filename: path to the target file
+        :return: file exists or not
+        """
         if not os.path.exists(filename):
             self.logger.critical('No such file "%s"', filename)
             return False
