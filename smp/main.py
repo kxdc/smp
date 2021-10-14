@@ -27,7 +27,13 @@ class SimpleMailHelper:
         self.replace_char = " "
 
     def set_target_word_list(self, word_list: List[str]) -> None:
+        """
+        Set value of member 'target_word_list'
 
+        :param self: instance of the class
+        :param word_list: list of words to be set
+        :return: None
+        """
         self.target_word_list = word_list
 
     def exists_file(self, filename: str) -> bool:
