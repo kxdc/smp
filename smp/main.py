@@ -78,7 +78,7 @@ class SimpleMailHelper:
 
     def search_substr_in_line(self, line: str, sstr: str) -> Oneline_Results:
         """
-        Search target sub string of target line
+        Search target sub string in target line
 
         :param self: instance of the class
         :param line: line to be processed
@@ -89,7 +89,7 @@ class SimpleMailHelper:
 
     def search_word_in_line(self, line: str, word: str) -> Oneline_Results:
         """
-        Search target word of target line
+        Search target word in target line
 
         :param self: instance of the class
         :param line: line to be processed
