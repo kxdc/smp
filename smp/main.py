@@ -65,7 +65,13 @@ class SimpleMailHelper:
         return lines
 
     def process_file(self, filename: str) -> None:
+        """
+        Whole process of target file
 
+        :param self: instance of the class
+        :param filename: path to the target file
+        :return: None
+        """
         if self.exists_file(filename):
             for oneline in self.get_lines(filename).split("."):
                 self.content.append(oneline.lstrip())
