@@ -52,7 +52,13 @@ class SimpleMailHelper:
             return True
 
     def get_lines(self, filename: str) -> str:
+        """
+        Get lines from target file
 
+        :param self: instance of the class
+        :param filename: path to the target file
+        :return: content of lines
+        """
         with open(filename, "rt") as file:
             lines = file.read()
 
