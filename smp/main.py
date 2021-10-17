@@ -88,7 +88,14 @@ class SimpleMailHelper:
         return (sstr, [string.start() for string in re.finditer(sstr, line)])
 
     def search_word_in_line(self, line: str, word: str) -> Oneline_Results:
+        """
+        Search target word of target line
 
+        :param self: instance of the class
+        :param line: line to be processed
+        :param word: word to be searched
+        :return: results of this search
+        """
         return (word, [i for i, w in enumerate(line.split()) if w == word])
 
     def search_words_in_content(self) -> Content_Results:
