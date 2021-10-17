@@ -77,7 +77,14 @@ class SimpleMailHelper:
                 self.content.append(oneline.lstrip())
 
     def search_substr_in_line(self, line: str, sstr: str) -> Oneline_Results:
+        """
+        Search target sub string of target line
 
+        :param self: instance of the class
+        :param line: line to be processed
+        :param sstr: sub string to be searched
+        :return: results of this search
+        """
         return (sstr, [string.start() for string in re.finditer(sstr, line)])
 
     def search_word_in_line(self, line: str, word: str) -> Oneline_Results:
