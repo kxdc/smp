@@ -99,6 +99,12 @@ class SimpleMailHelper:
         return (word, [i for i, w in enumerate(line.split()) if w == word])
 
     def search_words_in_content(self) -> Content_Results:
+        """
+        Search target word in self member 'content'
+
+        :param self: instance of the class
+        :return: results of this search
+        """
 
         results = []
         line_index = -1
