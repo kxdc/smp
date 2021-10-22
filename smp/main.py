@@ -105,7 +105,6 @@ class SimpleMailHelper:
         :param self: instance of the class
         :return: results of this search
         """
-
         results = []
         line_index = -1
 
@@ -121,7 +120,15 @@ class SimpleMailHelper:
     def word_matches(
         self, word: str, target: List[str], threshold: int
     ) -> Generator[str, None, None]:
+        """
+        Get the match result of target word
 
+        :param self: instance of the class
+        :param word: target word to match
+        :param list: line to match with the target word
+        :param threshold: define the similarity
+        :return: results of this match
+        """
         s = difflib.SequenceMatcher(None, word, target)
         w = "".join(word[i:i + n] for i, j, n in s.get_matching_blocks() if n)
         if len(w) / float(len(target)) >= threshold:
