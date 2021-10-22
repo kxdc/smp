@@ -135,7 +135,14 @@ class SimpleMailHelper:
             yield w
 
     def replace_except_target(self, line: str, target: Oneline_Results) -> str:
+        """
+        Get a new line only with target word
 
+        :param self: instance of the class
+        :param line: source line
+        :param target: target word and it's position
+        :return: new line after process
+        """
         tmp = line.split(" ")
         for idx in range(len(tmp)):
             if not tmp[idx] == target[0]:
