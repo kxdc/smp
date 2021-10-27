@@ -151,7 +151,13 @@ class SimpleMailHelper:
         return self.replace_char.join(tmp)
 
     def process_words_to_remove(self, results: Content_Results) -> None:
+        """
+        Generate the lines to show words to be removed
 
+        :param self: instance of the class
+        :param results: word hit results
+        :return: None
+        """
         for oneline_result in results:
             hint_line = ""
             orig_line = self.content[oneline_result[0]]
