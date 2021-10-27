@@ -203,6 +203,12 @@ class SimpleMailHelper:
             total_length += len(line)
 
     def display_outputs(self) -> None:
+        """
+        Display final reults
+
+        :param self: instance of the class
+        :return: None
+        """
 
         for i in range(len(self.content)):
             print(self.content[i])
