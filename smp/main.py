@@ -172,7 +172,13 @@ class SimpleMailHelper:
             self.outputs.append(hint_line)
 
     def splitted_display(self, size) -> None:
+        """
+        Display the lines with characters limit
 
+        :param self: instance of the class
+        :param size: limit of char length
+        :return: None
+        """
         squiz_content = "# ".join(self.content)
         squiz_outputs = " ".join(self.outputs)
         words = squiz_content.split(" ")
